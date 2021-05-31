@@ -1,0 +1,25 @@
+* {
+    font-family: "Times New Roman", Serif, serif;
+}
+
+.image {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+}
+
+.name {
+    line-height: 50%;
+    text-align: center;
+}
+
+.menu {
+    text-align: center;
+    font-size: large;
+    text-transform: uppercase;
+}
+
+.chapter{
+    text-decoration: none;
+}

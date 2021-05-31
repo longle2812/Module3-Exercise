@@ -1,0 +1,135 @@
+body{
+    font-family: Arial;
+}
+
+#menu{
+    height: 50px;
+    padding:0;
+    margin:0;
+    background-color: #222222;
+    border: 1px solid #CDCDCD;
+}
+
+#menu ul, #menu li {
+    padding: 0;
+    margin: 0;
+}
+
+#menu li{
+    float: left;
+    position: relative;
+    color: white;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#menu li a{
+    text-decoration: none;
+    color: white;
+    display: block;
+    background-color: black;
+    height: 50px;
+    width: 100px;
+    text-align: center;
+    line-height: 50px;
+}
+
+#menu ul ul li a{
+    width: 200px;
+    text-align: left;
+    padding-left: 10px;
+}
+
+#menu li a:hover{
+    background-color: red;
+}
+
+#menu ul ul{
+    position: absolute;
+    top: 50px;
+    left: 10px;
+    visibility: hidden;
+}
+
+#menu ul li:hover ul{
+    visibility: visible;
+}
+
+#loginButton{
+    position: relative;
+    float: right;
+    width: 100px;
+    border: 1px solid white;
+    text-decoration: none;
+    color: white;
+    text-align: center;
+    display: block;
+    line-height: 30px;
+    height: 30px;
+    top: 10px;
+    right: 10px;
+}
+
+#loginButton:hover{
+    background-color: chartreuse;
+}
+
+#content{
+    height: 400px;
+    background-color: yellow;
+    padding: 0;
+    margin: 0;
+}
+
+#left{
+    height: 100%;
+    background-color: aliceblue;
+    width: 20%;
+    float: left;
+}
+
+#middle{
+    height: 100%;
+    background-color: white;
+    width: 60%;
+    float: left;
+}
+
+#right{
+    height: 100%;
+    background-color: aliceblue;
+    width: 20%;
+    float: right;
+}
+
+#middle h1, #middle p{
+    margin-left: 10px;
+}
+#content li{
+    list-style: none;
+}
+#content ul li a{
+    text-decoration: none;
+    line-height: 30px;
+}
+
+#footer{
+    height: 100px;
+    background-color: gray;
+    text-align: center;
+    vertical-align: center;
+    line-height: 100px;
+    color: white;
+}
+
+#right li{
+    marin: 30px;
+    margin-bottom: 30px;
+    border: 1px solid black;
+    width: 150px;
+    text-align: center;
+    height: 60px;
+    line-height: 60px;
+    background-color: lightgray;
+}

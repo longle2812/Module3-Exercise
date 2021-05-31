@@ -1,0 +1,36 @@
+*{
+    font-family: "Arial", Serif, serif;
+    font-size: 1em;
+    font-weight: 500;
+}
+
+h1{
+    font-family: "Times New Roman", Serif, serif;
+    font-size: 2em;
+    line-height: 10%;
+}
+
+#Subtitle {
+    font-size: 90%;
+    line-height: 10%;
+    margin-bottom: 40px;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.blue {
+    color: blue;
+}
+
+.element {
+    text-align: justify;
+    text-indent: 40px;
+}
+
+.subText {
+    position: relative;
+    right: 5px;
+    font-size: 60%;
+}

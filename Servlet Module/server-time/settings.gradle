@@ -1,0 +1,3 @@
+rootProject.name = 'server-time'
+include 'java'
+

@@ -13,6 +13,12 @@ public class Customer {
         this.address = address;
     }
 
+    public Customer(String name, String email, String address) {
+        this.name = name;
+        this.email = email;
+        this.address = address;
+    }
+
     public Customer() {
     }
 

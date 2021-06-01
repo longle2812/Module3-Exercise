@@ -40,7 +40,6 @@ public class CustomerServlet extends HttpServlet {
     }
 
 
-
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
@@ -66,7 +65,6 @@ public class CustomerServlet extends HttpServlet {
     private void listCustomer(HttpServletRequest request, HttpServletResponse response) {
         List<Customer> customerList = this.customerService.findAll();
         request.setAttribute("customers", customerList);
-
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/list.jsp");
         try {
             dispatcher.forward(request, response);
@@ -92,10 +90,9 @@ public class CustomerServlet extends HttpServlet {
         String name = request.getParameter("name");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
-        int id = (int) (Math.random() * 10000);
 
-        Customer customer = new Customer(id, name, email, address);
-        this.customerService.save(customer);
+        Customer customer = new Customer(name, email, address);
+        this.customerService.createNewCustomer(customer);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/create.jsp");
         request.setAttribute("message", "New customer was created");
         try {
@@ -136,11 +133,8 @@ public class CustomerServlet extends HttpServlet {
         if (customer == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
         } else {
-            customer.setName(name);
-            customer.setEmail(email);
-            customer.setAddress(address);
-            this.customerService.update(id, customer);
-            request.setAttribute("customer", customer);
+            this.customerService.update(id, new Customer(name, email, address));
+            request.setAttribute("customer", new Customer(id, name, email, address));
             request.setAttribute("message", "Customer information was updated");
             dispatcher = request.getRequestDispatcher("customer/edit.jsp");
         }
@@ -194,18 +188,15 @@ public class CustomerServlet extends HttpServlet {
         RequestDispatcher dispatcher;
         if (customer == null) {
             dispatcher = request.getRequestDispatcher("error-404.jsp");
-        }
-        else {
+        } else {
             request.setAttribute("customer", customer);
             dispatcher = request.getRequestDispatcher("customer/view.jsp");
         }
         try {
             dispatcher.forward(request, response);
-        }
-        catch (ServletException e){
+        } catch (ServletException e) {
             e.printStackTrace();
-        }
-        catch (IOException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

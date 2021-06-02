@@ -1,5 +1,5 @@
-Controller/CustomerServlet.java
- Controller.CustomerServlet
+Model/Customer.java
+ Model.Customer
 DAO/iCustomerDAO.java
  DAO.iCustomerDAO
 DAO/CustomerDAO.java
@@ -8,7 +8,7 @@ DAO/SQLConnection.java
  DAO.SQLConnection
 Service/CustomerService.java
  Service.CustomerService
+Controller/CustomerServlet.java
+ Controller.CustomerServlet
 Service/CustomerServiceIml.java
  Service.CustomerServiceIml
-Model/Customer.java
- Model.Customer

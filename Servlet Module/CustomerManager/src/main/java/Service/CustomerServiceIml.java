@@ -41,4 +41,13 @@ public class CustomerServiceIml implements CustomerService {
         customerDAO.createNewCustomer(customer);
     }
 
+    @Override
+    public List<Customer> findByAddress(String address) {
+        return customerDAO.findByAddress(address);
+    }
+
+    @Override
+    public List<Customer> sortByName() {
+        return customerDAO.sortByName();
+    }
 }

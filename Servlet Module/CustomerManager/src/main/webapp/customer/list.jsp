@@ -9,6 +9,11 @@
 <p>
     <a href="/customers?action=create">Create new customer</a>
 </p>
+<form>
+    <input type="text" placeholder="search" name="q">
+    <button>Search</button>
+</form>
+<button> <a href="customers?sort=true">Sort</a></button>
 <table border="1">
     <tr>
         <td>ID</td>

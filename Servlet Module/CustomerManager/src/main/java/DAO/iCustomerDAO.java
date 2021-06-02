@@ -15,4 +15,8 @@ public interface iCustomerDAO {
 
     boolean deleteCustomer(int id);
 
+    List<Customer> findByAddress(String address);
+
+    List<Customer> sortByName();
+
 }

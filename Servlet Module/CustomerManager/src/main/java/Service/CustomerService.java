@@ -17,5 +17,7 @@ public interface CustomerService {
 
     boolean remove(int id);
 
+    List<Customer> findByAddress(String address);
 
+    List<Customer> sortByName();
 }

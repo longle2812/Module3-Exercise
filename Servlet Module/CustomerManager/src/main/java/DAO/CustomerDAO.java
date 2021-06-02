@@ -97,11 +97,52 @@ public class CustomerDAO implements iCustomerDAO {
         int rowDeleted = 0;
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(DELETE_BY_ID);
-            preparedStatement.setInt(1,id);
+            preparedStatement.setInt(1, id);
             preparedStatement.executeUpdate();
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
         return rowDeleted != 0;
+    }
+
+    @Override
+    public List<Customer> findByAddress(String address) {
+        Connection connection = SQLConnection.getConnection();
+        List<Customer> customers = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from customer where address like ?");
+            preparedStatement.setString(1, "%" +address +"%");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String address1 = resultSet.getString("address");
+                customers.add(new Customer(id, name, email, address1));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return customers;
+    }
+
+    @Override
+    public List<Customer> sortByName() {
+        Connection connection = SQLConnection.getConnection();
+        List<Customer> customers = new ArrayList<>();
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("select * from customer order by name desc ");
+            ResultSet resultSet = preparedStatement.executeQuery();
+            while (resultSet.next()){
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                String address1 = resultSet.getString("address");
+                customers.add(new Customer(id, name, email, address1));
+            }
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
+        return customers;
     }
 }

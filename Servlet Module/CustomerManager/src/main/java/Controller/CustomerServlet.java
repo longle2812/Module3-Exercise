@@ -63,7 +63,18 @@ public class CustomerServlet extends HttpServlet {
     }
 
     private void listCustomer(HttpServletRequest request, HttpServletResponse response) {
-        List<Customer> customerList = this.customerService.findAll();
+        String querry = request.getParameter("q");
+        boolean sort = Boolean.parseBoolean(request.getParameter("sort"));
+        List<Customer> customerList;
+        if (querry == null || querry.equals("")) {
+           customerList = this.customerService.findAll();
+        }
+        else {
+            customerList = this.customerService.findByAddress(querry);
+        }
+        if (sort) {
+            customerList = this.customerService.sortByName();
+        }
         request.setAttribute("customers", customerList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("customer/list.jsp");
         try {
